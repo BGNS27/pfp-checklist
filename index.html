@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Capstone Pre-Departure Checklist</title>
+<meta name="description" content="Pre-departure checklist for the Portuguese Flagship Overseas Capstone 2027.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
+</head>
+<body>
+<style>
+:root { --display: 'Caladea', Cambria, Georgia, 'Times New Roman', serif; --body: 'Carlito', Calibri, 'Segoe UI', Arial, sans-serif; --bg: #F4F7F9; --surface: #FFFFFF; --tint: #EEF3F6; --ink: #1B2A36; --muted: #55636E; --heading: #14324A; --brand: #14324A; --on-brand: #FFFFFF; --link: #14324A; --gold: #8C5E10; --gold-bright: #E3A72F; --rule: #D7E2EA; --band: #14324A; --band-fg: #FFFFFF; --band-muted: #C9DCE8; --band-track: rgba(255,255,255,.18); --crit: #B03A1E; --on-crit: #FFFFFF; --warn-bg: #FFF3D6; --warn-fg: #7A4E00; --ok: #2E7D5B; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0E1820; --surface: #15232E; --tint: #1C2E3B; --ink: #E4ECF1; --muted: #9FB1BE; --heading: #DCE8F1; --brand: #9CC3E0; --on-brand: #0E1820; --link: #9CC3E0; --gold: #E3B65A; --gold-bright: #E3A72F; --rule: #263845; --band: #102435; --band-fg: #FFFFFF; --band-muted: #B9CCDA; --band-track: rgba(255,255,255,.14); --crit: #E0704F; --on-crit: #1A0C07; --warn-bg: #3A2C0E; --warn-fg: #F2C46B; --ok: #5CC497; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0E1820; --surface: #15232E; --tint: #1C2E3B; --ink: #E4ECF1; --muted: #9FB1BE; --heading: #DCE8F1; --brand: #9CC3E0; --on-brand: #0E1820; --link: #9CC3E0; --gold: #E3B65A; --gold-bright: #E3A72F; --rule: #263845; --band: #102435; --band-fg: #FFFFFF; --band-muted: #B9CCDA; --band-track: rgba(255,255,255,.14); --crit: #E0704F; --on-crit: #1A0C07; --warn-bg: #3A2C0E; --warn-fg: #F2C46B; --ok: #5CC497; color-scheme: dark; }
+body { background: var(--bg); color: var(--ink); margin: 0; }
+</style>
+<style>
+/* Layout: navy header band with progress + countdown, a settings strip, an "Up next" panel, then one card per section of the cheat sheet */
+#pfpcl, #pfpcl * { box-sizing: border-box; }
+#pfpcl { font-family: var(--body); font-size: 16px; line-height: 1.45; color: var(--ink); background: var(--bg); text-align: left; }
+#pfpcl a { color: var(--link); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+#pfpcl a:focus-visible, #pfpcl button:focus-visible, #pfpcl input:focus-visible + .seg-label, #pfpcl .item input:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 2px; }
+#pfpcl .wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+#pfpcl h1, #pfpcl h2, #pfpcl h3 { font-family: var(--display); color: var(--heading); margin: 0; text-wrap: balance; line-height: 1.15; letter-spacing: 0; text-transform: none; }
+
+/* header band */
+#pfpcl .band { background: var(--band); color: var(--band-fg); }
+#pfpcl .band .wrap { padding-block: 28px 24px; display: grid; gap: 18px; }
+#pfpcl .kicker { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-bright); }
+#pfpcl .band h1 { color: var(--band-fg); font-size: clamp(28px, 6vw, 40px); margin-top: 4px; }
+#pfpcl .band p { margin: 6px 0 0; color: var(--band-muted); max-width: 60ch; }
+#pfpcl .stats { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: end; }
+#pfpcl .stat-num { font-family: var(--display); font-size: 34px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+#pfpcl .stat-lbl { font-size: 13px; color: var(--band-muted); margin-top: 4px; }
+#pfpcl .bar { height: 10px; border-radius: 99px; background: var(--band-track); overflow: hidden; }
+#pfpcl .bar > span { display: block; height: 100%; width: 0; background: var(--gold-bright); border-radius: 99px; transition: width .35s ease; }
+
+/* storage notice */
+#pfpcl .notice { margin: 16px 0 0; padding: 12px 14px; border-radius: 10px; background: var(--warn-bg); color: var(--ink); border: 1.5px solid var(--warn-fg); font-size: 15px; max-width: none; }
+#pfpcl .notice strong { color: var(--warn-fg); }
+
+/* settings */
+#pfpcl .settings { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; padding-block: 18px 6px; }
+#pfpcl fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+#pfpcl legend { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; padding: 0; }
+#pfpcl .seg { display: inline-flex; border: 1.5px solid var(--brand); border-radius: 99px; overflow: hidden; }
+#pfpcl .seg input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+#pfpcl .seg-label { display: block; padding: 7px 14px; font-weight: 700; font-size: 14px; color: var(--brand); cursor: pointer; min-height: 36px; }
+#pfpcl .seg input:checked + .seg-label { background: var(--brand); color: var(--on-brand); }
+#pfpcl .toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--ink); cursor: pointer; }
+#pfpcl .toggle input { width: 18px; height: 18px; accent-color: var(--brand); }
+
+/* up next */
+#pfpcl .next { background: var(--surface); border: 1.5px solid var(--brand); border-radius: 12px; padding: 16px 18px; margin-top: 14px; }
+#pfpcl .next h2 { font-size: 20px; }
+#pfpcl .next ol { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+#pfpcl .next li { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+#pfpcl .next .ntitle { font-weight: 700; color: var(--ink); text-decoration: none; }
+#pfpcl .next .ntitle:hover { text-decoration: underline; }
+#pfpcl .next .nsec { font-size: 13px; color: var(--muted); }
+#pfpcl .alldone { margin: 8px 0 0; color: var(--ok); font-weight: 700; }
+
+/* sections */
+#pfpcl .sections { display: grid; gap: 16px; padding-block: 16px 8px; }
+#pfpcl .sec { background: var(--surface); border-radius: 12px; padding: 18px 18px 8px; border: 1px solid var(--rule); }
+#pfpcl .sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+#pfpcl .sec-head h2 { font-size: 22px; }
+#pfpcl .sec-count { font-size: 14px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+#pfpcl .sec-count.full { color: var(--ok); }
+#pfpcl .note { margin: 8px 0 4px; font-size: 14px; color: var(--muted); max-width: 70ch; }
+#pfpcl .note strong { color: var(--ink); }
+#pfpcl ul.items { list-style: none; margin: 8px 0 0; padding: 0; }
+#pfpcl .item { display: grid; grid-template-columns: 26px 1fr; gap: 0 10px; padding: 12px 0; border-top: 1px solid var(--rule); }
+#pfpcl .item:first-child { border-top: 0; }
+#pfpcl .item input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--brand); cursor: pointer; }
+#pfpcl .item label { cursor: pointer; min-width: 0; }
+#pfpcl .t { display: block; font-weight: 700; color: var(--ink); }
+#pfpcl .d { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; max-width: 68ch; }
+#pfpcl .meta { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; margin-top: 6px; font-size: 14px; }
+#pfpcl .item.done .t { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+#pfpcl .item.done .chip { display: none; }
+#pfpcl .hide-done .item.done { display: none; }
+#pfpcl .hide-done .sec.complete { display: none; }
+
+/* status chips: semantic color plus a word, never color alone */
+#pfpcl .chip { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; white-space: nowrap; border: 1.5px solid transparent; }
+#pfpcl .chip.crit { background: var(--crit); color: var(--on-crit); }
+#pfpcl .chip.warn { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-fg); }
+#pfpcl .chip.start { background: var(--tint); color: var(--brand); border-color: var(--brand); }
+#pfpcl .chip.plain { background: var(--tint); color: var(--muted); }
+#pfpcl .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-right: 6px; }
+
+/* footer */
+#pfpcl .foot { padding-block: 8px 36px; display: grid; gap: 14px; }
+#pfpcl .contacts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+#pfpcl .person { background: var(--tint); border-radius: 10px; padding: 12px 14px; min-width: 0; overflow-wrap: anywhere; }
+#pfpcl .person strong { display: block; font-family: var(--display); color: var(--heading); font-size: 17px; }
+#pfpcl .person span { display: block; font-size: 13px; color: var(--muted); }
+#pfpcl .fine { font-size: 13px; color: var(--muted); margin: 0; }
+#pfpcl .reset { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+#pfpcl button { font: inherit; font-size: 14px; font-weight: 700; border-radius: 99px; padding: 8px 16px; cursor: pointer; min-height: 40px; border: 1.5px solid var(--brand); background: transparent; color: var(--brand); }
+#pfpcl button.danger { background: var(--crit); border-color: var(--crit); color: var(--on-crit); }
+@media (prefers-reduced-motion: reduce) { #pfpcl .bar > span { transition: none; } }
+</style>
+
+<div id="pfpcl">
+  <div class="band"><div class="wrap">
+    <div>
+      <div class="kicker">Portuguese Flagship Program · Overseas Capstone 2027</div>
+      <h1>Capstone Pre-Departure Checklist</h1>
+      <p>Everything from the pre-departure orientation, as a checklist. Tick things off as you go.</p>
+    </div>
+    <div class="stats">
+      <div><div class="stat-num" id="pfpcl-count">0 / 0</div><div class="stat-lbl">tasks done</div></div>
+      <div><div class="stat-num" id="pfpcl-days">–</div><div class="stat-lbl" id="pfpcl-days-lbl">days until departure · Feb 2, 2027</div></div>
+    </div>
+    <div class="bar" role="progressbar" aria-label="Checklist progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pfpcl-bar"><span></span></div>
+  </div></div>
+
+  <div class="wrap">
+    <p class="notice" role="note"><strong>Your checks are saved only in this browser, on this device.</strong> Switching devices, using a private window or clearing your browser data starts the list fresh, so use the same browser each time.</p>
+    <div class="settings">
+      <fieldset><legend>My home school</legend>
+        <div class="seg"><input type="radio" name="pfpcl-school" id="pfpcl-school-uga" value="uga"><label class="seg-label" for="pfpcl-school-uga">UGA</label><input type="radio" name="pfpcl-school" id="pfpcl-school-ua" value="ua"><label class="seg-label" for="pfpcl-school-ua">Arizona (UA)</label></div>
+      </fieldset>
+      <fieldset><legend>My Brazilian consulate</legend>
+        <div class="seg"><input type="radio" name="pfpcl-cons" id="pfpcl-cons-atl" value="atl"><label class="seg-label" for="pfpcl-cons-atl">Atlanta</label><input type="radio" name="pfpcl-cons" id="pfpcl-cons-la" value="la"><label class="seg-label" for="pfpcl-cons-la">Los Angeles</label></div>
+      </fieldset>
+      <label class="toggle" for="pfpcl-hide"><input type="checkbox" id="pfpcl-hide"> Hide finished tasks</label>
+    </div>
+
+    <section class="next" aria-labelledby="pfpcl-next-h">
+      <h2 id="pfpcl-next-h">Up next</h2>
+      <ol id="pfpcl-next"></ol>
+    </section>
+
+    <div class="sections" id="pfpcl-sections"></div>
+
+    <div class="foot">
+      <h2 style="font-size:22px">Need help?</h2>
+      <div class="contacts">
+        <div class="person"><strong>Bruno Sales</strong><a href="mailto:bsales@uga.edu">bsales@uga.edu</a><span>Anything! · <a href="https://calendly.com/brunosales/one-on-one" target="_blank" rel="noopener">Book a one-on-one</a></span></div>
+        <div class="person"><strong>Vinícius Cardoso</strong><a href="mailto:coordenacao.flagship@ufsj.edu.br">coordenacao.flagship@ufsj.edu.br</a><span>SJDR &amp; UFSJ: housing, content courses, logistics</span></div>
+        <div class="person"><strong>Adolfo Centeno</strong><a href="mailto:centeno@arizona.edu">centeno@arizona.edu</a><span>UA systems &amp; procedures; LA consulate</span></div>
+        <div class="person"><strong>Colleen Larson</strong><a href="mailto:clarson@uga.edu">clarson@uga.edu</a><span>UGA Study Away application</span></div>
+      </div>
+      <p class="fine">Dates and links can change; when in doubt, ask.</p>
+      <div class="reset" id="pfpcl-reset">
+        <button type="button" id="pfpcl-reset-btn">Clear all my checks</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var KEY = 'pfp-capstone-2027-checklist-v1';
+  var DEPART = new Date(2027, 1, 2);
+  var L = {
+    studyaway: 'https://studyaway.uga.edu/index.cfm?FuseAction=Programs.ViewProgramAngular&id=10061',
+    ea101: 'https://web.oge.uga.edu/studyaway/ea101-exchange',
+    applyuga: 'https://apply.uga.edu/apply/',
+    visa_atl: 'https://www.gov.br/mre/pt-br/consulado-atlanta/servicos-consulares/visas/study',
+    visa_la: 'https://www.gov.br/mre/pt-br/consulado-los-angeles/english/visas/types-of-visa#vitem4',
+    visaform: 'https://formulario-mre.serpro.gov.br/sci/pages/web/ui/#/servicos-estrangeiros',
+    cpf_atl: 'https://www.gov.br/mre/pt-br/consulado-atlanta/servicos-consulares/cpf-1/cpf-for-non-brazilians',
+    cpf_la: 'https://www.gov.br/mre/pt-br/consulado-los-angeles/servicos-consulares/servicos-notariais/cpf-saidafiscal/cpf-for-non-brazilian-citizens',
+    fcpf: 'http://servicos.receita.fazenda.gov.br/Servicos/CPF/cpfEstrangeiro/Fcpfing.asp',
+    econs_la: 'https://ec-losangeles.itamaraty.gov.br/',
+    clinic_uga: 'https://healthcenter.uga.edu/services/travel-clinic/',
+    clinic_ua: 'https://health.arizona.edu/travel-clinic',
+    cdc: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil',
+    tripprep: 'https://tripprep.com/destinations/brazil',
+    dengue: 'https://www.cdc.gov/dengue/vaccine/index.html'
+  };
+  // only: 'ua' | 'atl' | 'la' limits an item to that school or consulate.
+  // due: hard deadline (yyyy-mm-dd). when: a softer timing label. asap: flagged "Start now".
+  var SECTIONS = [
+    { id: 'apps', title: 'Applications', items: [
+      { id: 'ua-app', only: 'ua', due: '2026-11-20', t: 'Submit the UGA Study Abroad/Exchange admission application and pay the $70 fee',
+        d: 'On apply.uga.edu choose “Study Abroad/Exchange”. Program selection: Spring 2027 · “Study Abroad” · campus “Study Abroad General” · the major option offered.', links: [['apply.uga.edu', L.applyuga]] },
+      { id: 'ua-transcript', only: 'ua', due: '2026-11-20', t: 'Have your home institution send your official transcript to UGA Undergraduate Admissions' },
+      { id: 'ua-uploads', only: 'ua', due: '2026-11-20', t: 'Upload proof of legal residency, your vaccination record and the departmental approval form',
+        d: 'In myStatus › Upload Materials. On the approval form we send you, fill in “Applicant Information” only. The red X should turn into a green checkmark within an hour.' },
+      { id: 'ua-passport', only: 'ua', when: 'After you’re accepted', t: 'Submit your passport on the UGA Undergraduate Admissions website as Verification of Lawful Presence' },
+      { id: 'sa-pre', due: '2026-12-05', asap: true, t: 'Complete the Study Away pre-decision items: TCAF, $200 exchange application fee and advising', links: [['UGA Study Away application', L.studyaway]] },
+      { id: 'sa-tcaf', due: '2026-12-05', t: 'Sign the pre-filled TCAF we send you (PORT/PBLL classes) and submit it in the Study Away portal' },
+      { id: 'sa-post', due: '2026-12-05', t: 'Once accepted, commit and complete all Study Away post-decision items' },
+      { id: 'sa-ea101', when: 'Mandatory', t: 'Complete the Exchange Pre-Departure Orientation', links: [['Exchange Pre-Departure Orientation', L.ea101]] },
+      { id: 'ufsj-form', asap: true, when: 'Start now', t: 'Email Dr. Sales your UFSJ INTL Student Application form', d: 'UFSJ uses it for your proof of enrollment, which you need for the visa. Send it to bsales@uga.edu.' },
+      { id: 'tcaf-supp', when: 'Mid-Dec – early Jan', t: 'Work with PFP on your supplemental TCAFs', d: 'We’ll find UFSJ classes offered next semester together. Once you arrive, UFSJ will help you register.' }
+    ]},
+    { id: 'money', title: 'Money & funding', note: '<strong>$3,025 PFP program fee</strong> (orientation, excursions and mandatory insurance) is charged to your account when you register for SXCH 1005.', items: [
+      { id: 'tuition', when: 'Early January', t: 'Pay UGA exchange tuition & fees ($5,590) to Student Accounts', d: 'See the OGE checklist for the exact date.' },
+      { id: 'boren', asap: true, when: 'Start now', t: 'Submit all your Boren paperwork', d: 'No paperwork, no funds: passport, enrollment verification, testing agreement, NSEP & IIE terms and conditions, service agreement, government status form and the rest. The first and largest payment usually arrives 4–6 weeks before departure. Need funds earlier? Contact your advisor with invoices or payment schedules. Questions: boren@iieus.org' },
+      { id: 'pdo', when: 'Next: January (date TBA)', t: 'Attend all Flagship pre-departure orientations and security webinars' }
+    ]},
+    { id: 'visa', title: 'Student visa (Vitem IV)', note: '<strong>Instructions vary by consulate.</strong> Follow the one that serves your area of residence. Time your FBI background check: it must be issued within 60 days.', items: [
+      { id: 'visa-read-atl', only: 'atl', asap: true, when: 'Start now', t: 'Read the Atlanta consulate’s study visa instructions', d: 'Questions: visa.atlanta@itamaraty.gov.br', links: [['Atlanta study visa instructions', L.visa_atl]] },
+      { id: 'visa-read-la', only: 'la', asap: true, when: 'Start now', t: 'Read the Los Angeles consulate’s VITEM IV instructions', d: 'Questions: visa.la@itamaraty.gov.br', links: [['Los Angeles VITEM IV instructions', L.visa_la]] },
+      { id: 'doc-fbi', asap: true, when: 'Start now', t: 'FBI background check, issued within the past 60 days', d: 'Get fingerprinted and apply.' },
+      { id: 'doc-mo', asap: true, when: 'Start now', t: 'USPS money order for $85.00', d: 'If you apply to Atlanta by mail, also get a prepaid USPS return envelope (Priority or Priority Express flat-rate only).' },
+      { id: 'doc-passport', t: 'Original passport, valid to the end of the trip, with 2+ blank pages' },
+      { id: 'doc-photo', t: 'Passport-style photo, 2″ × 2″, white background' },
+      { id: 'doc-bill', t: 'Water, energy or gas bill in your name' },
+      { id: 'doc-birth', t: 'Copy of your birth certificate', d: 'Apostilled if you weren’t born in the USA.' },
+      { id: 'doc-ins', t: 'Health insurance valid in Brazil (UGA – Gallagher)' },
+      { id: 'doc-flight', t: 'Round-trip flight itinerary' },
+      { id: 'doc-usenroll', t: 'Proof of US enrollment from the Registrar' },
+      { id: 'doc-ufsj', tag: 'PFP provides', t: 'Proof of Brazilian enrollment (UFSJ form)' },
+      { id: 'doc-funds', tag: 'PFP provides', t: 'Proof of adequate funds' },
+      { id: 'visa-online', t: 'Fill out and submit the visa application online, then print and sign the receipt', links: [['Online visa application', L.visaform]] },
+      { id: 'visa-submit-atl', only: 'atl', t: 'Submit your packet to the Atlanta consulate',
+        d: 'In person: sealed envelope, Mon–Fri 1–3 p.m.; pick up the visa in person during the same hours (no third parties). By mail: Consulate General of Brazil in Atlanta – Visa Section, 3500 Lenox Rd NE, Suite 800, One Alliance Center, Atlanta, GA 30326, with your prepaid return envelope.' },
+      { id: 'visa-submit-la', only: 'la', t: 'Email visa.la@itamaraty.gov.br for next steps on submitting your packet' }
+    ]},
+    { id: 'cpf', title: 'CPF (Brazil’s taxpayer number)', items: [
+      { id: 'cpf-atl-1', only: 'atl', t: 'Scan your documents (PDF or JPEG)', d: 'The CPF registration form (FCPF), your passport page with full name and date and place of birth, and a birth certificate showing your nationality and parents’ names.', links: [['FCPF registration form', L.fcpf], ['Atlanta CPF instructions', L.cpf_atl]] },
+      { id: 'cpf-atl-2', only: 'atl', t: 'Create an e-consular account and request a CPF number, uploading the scans' },
+      { id: 'cpf-atl-3', only: 'atl', t: 'Once approved, schedule an in-person appointment in the e-consular system' },
+      { id: 'cpf-atl-4', only: 'atl', t: 'Bring the originals of all three documents to your appointment' },
+      { id: 'cpf-la-1', only: 'la', t: 'Fill out the CPF form online', d: 'Non-Brazilian citizens must leave “Título de Eleitor” (voter) blank.', links: [['CPF form (FCPF)', L.fcpf], ['Los Angeles CPF instructions', L.cpf_la]] },
+      { id: 'cpf-la-2', only: 'la', t: 'Click “Enviar”, save the FCPF protocol as a PDF, print it and sign it in front of a notary public' },
+      { id: 'cpf-la-3', only: 'la', t: 'On the e-consular system, request “CPF – estrangeiros”', d: 'Upload a photo ID (full name, date of birth, nationality) and your birth certificate, then click “Enviar”.', links: [['LA e-consular system', L.econs_la]] },
+      { id: 'cpf-la-4', only: 'la', t: 'Book your appointment when the consulate sends instructions' }
+    ]},
+    { id: 'travel', title: 'Flights & passport', note: '<strong>The rules:</strong> leave the US Feb 2, arrive at Rio–Galeão (GIG) Feb 3; leave GIG Dec 10 (evening, after 5 p.m.). Fly a US airline. You may arrive up to a week early (not before Jan 27) and stay up to a week after (not after Dec 17). No exceptions.', items: [
+      { id: 'pp-valid', asap: true, when: 'Start now', t: 'Check your passport: renew it if it expires within 6 months of your return date' },
+      { id: 'ticket', asap: true, when: 'Start now', t: 'Buy a modifiable roundtrip ticket on a US airline', d: 'Roundtrip is required for the visa. December dates won’t be on sale yet, so pick a ticket that lets you change the return to Dec 10. Fly on the program dates to use UFSJ airport transport.' },
+      { id: 'ticket-change', when: 'After mid-January', t: 'Change your return flight to Dec 10' },
+      { id: 'early-late', when: 'Only if it applies', t: 'Tell PFP if you’ll arrive early or leave late', d: 'It may affect your airport transfer.' },
+      { id: 'pp-copy', when: 'Before you leave', t: 'Make a photocopy of your passport', d: 'Store the original safely, or keep it on you if local law requires it.' }
+    ]},
+    { id: 'health', title: 'Health', items: [
+      { id: 'clinic', asap: true, when: 'Start now', t: 'Book a travel clinic appointment', links: [['UGA Travel Clinic', L.clinic_uga], ['UA Travel Clinic', L.clinic_ua]], d: 'Or any travel clinic near you.' },
+      { id: 'dengue', when: 'At your clinic visit', t: 'Ask about the dengue vaccine', links: [['CDC: dengue vaccine', L.dengue]] },
+      { id: 'docdent', when: 'Before you leave', t: 'See your doctor and your dentist' },
+      { id: 'readup', when: 'Before you leave', t: 'Read up on health in Brazil', links: [['CDC: Brazil', L.cdc], ['TripPrep: Brazil', L.tripprep]] }
+    ]},
+    { id: 'housing', title: 'Housing (repúblicas)', note: 'Only contact repúblicas on the approved list unless you have prior authorization. Slow replies are normal.', items: [
+      { id: 'rep-contact', when: 'December – January', t: 'Contact the repúblicas you like from Vinícius’s list', d: 'Use Instagram, WhatsApp or Facebook, not email. Availability is only known in January.' },
+      { id: 'rep-decide', when: 'January', t: 'Decide on your housing and tell Vinícius', d: 'coordenacao.flagship@ufsj.edu.br' }
+    ]}
+  ];
+
+  // ---------- state (browser storage is a convenience: every access is guarded) ----------
+  var state = { done: {}, school: 'uga', cons: 'atl', hide: false };
+  try { var raw = localStorage.getItem(KEY); if (raw) { var s = JSON.parse(raw); if (s && typeof s === 'object') state = Object.assign(state, s); } } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  var root = document.getElementById('pfpcl');
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function parse(iso) { var p = iso.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function fmt(d) { return MONTHS[d.getMonth()] + ' ' + d.getDate(); }
+  function today() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function daysUntil(d) { return Math.round((d - today()) / 86400000); }
+  function visible(it) { return !it.only || it.only === state.school || it.only === state.cons; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function status(it) {
+    if (it.due) {
+      var dd = parse(it.due), n = daysUntil(dd);
+      if (n < 0) return { cls: 'crit', text: 'Overdue · was due ' + fmt(dd), rank: 0, key: n };
+      if (n === 0) return { cls: 'crit', text: 'Due today', rank: 0, key: 0 };
+      if (n <= 14) return { cls: 'warn', text: 'Due in ' + n + (n === 1 ? ' day' : ' days') + ' · ' + fmt(dd), rank: 1, key: n };
+      return { cls: it.asap ? 'start' : 'plain', text: 'Due ' + fmt(dd), rank: it.asap ? 2 : 3, key: n };
+    }
+    if (it.asap) return { cls: 'start', text: it.when || 'Start now', rank: 2, key: 999 };
+    if (it.when) return { cls: 'plain', text: it.when, rank: 4, key: 9999 };
+    return null;
+  }
+
+  function render() {
+    var host = document.getElementById('pfpcl-sections'), html = '', total = 0, done = 0, nexts = [];
+    SECTIONS.forEach(function (sec) {
+      var items = sec.items.filter(visible); if (!items.length) return;
+      var sd = items.filter(function (i) { return state.done[i.id]; }).length;
+      total += items.length; done += sd;
+      html += '<section class="sec' + (sd === items.length ? ' complete' : '') + '" aria-labelledby="pfpcl-h-' + sec.id + '">' +
+        '<div class="sec-head"><h2 id="pfpcl-h-' + sec.id + '">' + esc(sec.title) + '</h2><span class="sec-count' + (sd === items.length ? ' full' : '') + '">' + sd + ' of ' + items.length + ' done</span></div>' +
+        (sec.note ? '<p class="note">' + sec.note + '</p>' : '') + '<ul class="items">';
+      items.forEach(function (it) {
+        var isDone = !!state.done[it.id], st = status(it);
+        if (!isDone && st) nexts.push({ it: it, st: st, sec: sec.title });
+        html += '<li class="item' + (isDone ? ' done' : '') + '" id="pfpcl-item-' + it.id + '">' +
+          '<input type="checkbox" id="pfpcl-cb-' + it.id + '" data-id="' + it.id + '"' + (isDone ? ' checked' : '') + '>' +
+          '<label for="pfpcl-cb-' + it.id + '"><span class="t">' + (it.tag ? '<span class="tag">' + esc(it.tag) + '</span>' : '') + esc(it.t) + '</span>' +
+          (it.d ? '<span class="d">' + esc(it.d) + '</span>' : '') + '</label>';
+        var meta = (st ? '<span class="chip ' + st.cls + '">' + esc(st.text) + '</span>' : '') +
+          (it.links || []).map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a>'; }).join('');
+        if (meta) html += '<div class="meta">' + meta + '</div>';
+        html += '</li>';
+      });
+      html += '</ul></section>';
+    });
+    host.innerHTML = html;
+
+    // progress
+    var pct = total ? Math.round(done / total * 100) : 0;
+    document.getElementById('pfpcl-count').textContent = done + ' / ' + total;
+    var bar = document.getElementById('pfpcl-bar'); bar.setAttribute('aria-valuenow', pct); bar.firstElementChild.style.width = pct + '%';
+
+    // up next: overdue, then due soon, then "start now", then the rest by date
+    nexts.sort(function (a, b) { return a.st.rank - b.st.rank || a.st.key - b.st.key; });
+    var nh = nexts.slice(0, 4).map(function (n) {
+      return '<li><span class="chip ' + n.st.cls + '">' + esc(n.st.text) + '</span>' +
+        '<a class="ntitle" href="#pfpcl-item-' + n.it.id + '">' + esc(n.it.t) + '</a><span class="nsec">' + esc(n.sec) + '</span></li>';
+    }).join('');
+    document.getElementById('pfpcl-next').innerHTML = nh || '<li class="alldone">Everything on your list is done. Boa viagem!</li>';
+    root.classList.toggle('hide-done', !!state.hide);
+  }
+
+  // countdown
+  (function () {
+    var n = daysUntil(DEPART), el = document.getElementById('pfpcl-days'), lbl = document.getElementById('pfpcl-days-lbl');
+    if (n > 0) { el.textContent = n; lbl.textContent = (n === 1 ? 'day' : 'days') + ' until departure · Feb 2, 2027'; }
+    else if (n === 0) { el.textContent = 'Today'; lbl.textContent = 'is departure day. Boa viagem!'; }
+    else { el.textContent = '✓'; lbl.textContent = 'You’re in Brazil. Boa viagem!'; }
+  })();
+
+  // controls
+  function setRadio(name, val) { var r = root.querySelector('input[name="' + name + '"][value="' + val + '"]'); if (r) r.checked = true; }
+  setRadio('pfpcl-school', state.school); setRadio('pfpcl-cons', state.cons);
+  document.getElementById('pfpcl-hide').checked = !!state.hide;
+  root.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t.dataset && t.dataset.id) { if (t.checked) state.done[t.dataset.id] = true; else delete state.done[t.dataset.id]; }
+    else if (t.name === 'pfpcl-school') state.school = t.value;
+    else if (t.name === 'pfpcl-cons') state.cons = t.value;
+    else if (t.id === 'pfpcl-hide') state.hide = t.checked;
+    else return;
+    save(); render();
+    if (t.dataset && t.dataset.id) { var again = document.getElementById(t.id); if (again && !state.hide) again.focus(); }
+  });
+
+  // two-step reset (the viewer can't show confirm() dialogs)
+  var resetBox = document.getElementById('pfpcl-reset');
+  function showResetButton() {
+    resetBox.innerHTML = '<button type="button" id="pfpcl-reset-btn">Clear all my checks</button>';
+    document.getElementById('pfpcl-reset-btn').addEventListener('click', askReset);
+  }
+  function askReset() {
+    resetBox.innerHTML = '<span>Clear every check on this list?</span><button type="button" class="danger" id="pfpcl-yes">Yes, clear them</button><button type="button" id="pfpcl-no">Keep my checks</button>';
+    document.getElementById('pfpcl-yes').addEventListener('click', function () { state.done = {}; save(); render(); resetBox.innerHTML = '<span>All checks cleared.</span>'; setTimeout(showResetButton, 2500); });
+    document.getElementById('pfpcl-no').addEventListener('click', showResetButton);
+    document.getElementById('pfpcl-no').focus();
+  }
+  document.getElementById('pfpcl-reset-btn').addEventListener('click', askReset);
+
+  render();
+})();
+</script>
+
+</body>
+</html>
